@@ -30,7 +30,7 @@ Develop a console application to allow clients to communicate with the drones. T
 - help: Displays a list of available commands and their descriptions.
 - deliver <drone_serial_number>: Delivers medications one by one for a drone with the given serial number in a first-in-first-out (FIFO) order. The drone should be in LOADED state and have enough battery capacity (battery level will decrease by 20% for each medication delivered). If all medications are delivered, the state changes to DELIVERED.
 - recharge <drone_serial_number>: Recharges the battery of a drone with the given serial number. The drone should be in RETURNING state and have a battery level below 25%. After recharging, the battery level should be 100% and the state should be updated to LOADED or DELIVERING depending on the medications.
-- 
+  
 Requirements
 Prevent the drone from being loaded with more weight than it can carry.
 Prevent the drone from being in LOADING state if the battery level is below 25%.
