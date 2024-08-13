@@ -14,12 +14,7 @@ public class Main {
             switch (tokens[0]) {
                 case "register":
                     if(tokens.length == 4) {
-                        boolean isNumeric = true;
-                        try {
-                            Integer num = Integer.parseInt(tokens[3]);
-                        } catch (NumberFormatException e) {
-                            isNumeric = false;
-                        }
+                        boolean isNumeric = isNumeric(tokens);
                         if(isNumeric)
                             drones.put(tokens[1], new Drone(tokens[1], tokens[2], tokens[3]));
                         else
@@ -34,12 +29,7 @@ public class Main {
                 case "load":
                     if(tokens.length == 5) {
                         String serial = tokens[1];
-                        boolean isNumeric = true;
-                        try {
-                            Integer num = Integer.parseInt(tokens[3]);
-                        } catch (NumberFormatException e) {
-                            isNumeric = false;
-                        }
+                        boolean isNumeric = isNumeric(tokens);
                         if(isNumeric)
                             drones.get(serial).loadMeds(new Medications(tokens[2], Integer.parseInt(tokens[3]), tokens[4]));
                         else
@@ -78,5 +68,15 @@ public class Main {
                     System.out.println("Invalid command");
             }
         }
+    }
+
+    private static boolean isNumeric(String[] tokens) {
+        boolean isNumeric = true;
+        try {
+            Integer num = Integer.parseInt(tokens[3]);
+        } catch (NumberFormatException e) {
+            isNumeric = false;
+        }
+        return isNumeric;
     }
 }
